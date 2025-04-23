@@ -71,6 +71,7 @@ class KtpPageState extends State<KtpPage> {
     expireC = TextEditingController();
 
     nameC = TextEditingController(text: widget.name);
+    genderC = TextEditingController(text: widget.gender);
   }
 
   @override 
