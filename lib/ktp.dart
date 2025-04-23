@@ -1,7 +1,36 @@
 import 'package:flutter/material.dart';
 
 class KtpPage extends StatefulWidget {
-  const KtpPage({super.key});
+  final String address;
+  final String country;
+  final String district;
+  final String expired;
+  final String gender;
+  final String job;
+  final String name;
+  final String nik;
+  final String placeOfBirth;
+  final String religion;
+  final String rtRw;
+  final String status;
+  final String village;
+
+  const KtpPage({
+    required this.address,
+    required this.country,
+    required this.district,
+    required this.expired,
+    required this.gender,
+    required this.job,
+    required this.name,
+    required this.nik,
+    required this.placeOfBirth,
+    required this.religion,
+    required this.rtRw,
+    required this.status,
+    required this.village,
+    super.key
+  });
 
   @override
   State<KtpPage> createState() => KtpPageState();
@@ -40,6 +69,8 @@ class KtpPageState extends State<KtpPage> {
     jobC = TextEditingController();
     countryC = TextEditingController();
     expireC = TextEditingController();
+
+    nameC = TextEditingController(text: widget.name);
   }
 
   @override 
@@ -84,6 +115,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Nama",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: nameC,  
                 ),
             
@@ -94,6 +126,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Jenis Kelamin",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: genderC
                 ),
             
@@ -104,6 +137,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Alamat",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: addressC,
                 ),
             
@@ -120,6 +154,7 @@ class KtpPageState extends State<KtpPage> {
                           labelText: "RT",
                           border: OutlineInputBorder()
                         ),
+                        readOnly: true,
                         controller: rtC,
                       ) 
                     ),
@@ -136,6 +171,7 @@ class KtpPageState extends State<KtpPage> {
                           labelText: "RW",
                           border: OutlineInputBorder()
                         ),
+                        readOnly: true,
                         controller: rtC,
                       ) 
                     )
@@ -150,6 +186,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Kelurahan",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: rwC,
                 ),
         
@@ -160,6 +197,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Kecamatan",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: rwC,
                 ),
         
@@ -170,6 +208,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Agama",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: relC,
                 ),
         
@@ -180,6 +219,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Status Perkawinan",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: statC,
                 ),
         
@@ -190,6 +230,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Pekerjaan",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: jobC,
                 ),
         
@@ -200,6 +241,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Kewarganegaraan",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: countryC,
                 ),
         
@@ -210,6 +252,7 @@ class KtpPageState extends State<KtpPage> {
                     labelText: "Berlaku Hingga",
                     border: OutlineInputBorder()
                   ),
+                  readOnly: true,
                   controller: expireC,
                 ),
             
