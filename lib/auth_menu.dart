@@ -33,8 +33,8 @@ class AuthMenuPageState extends State<AuthMenuPage> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
+              Color(0xFF0C3995),
               Color(0xFF041F55),
-              Color(0xFF0C3995)
             ]
           )
         ),
