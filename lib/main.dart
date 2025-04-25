@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:partai/auth_menu.dart';
 import 'package:partai/home.dart';
 
 void main() {

@@ -59,7 +59,6 @@ class HomeCategoryWidgetState extends State<HomeCategoryWidget> {
   Widget build(BuildContext context) {
     return AlignedGridView.count(
       crossAxisCount: 4,
-      mainAxisSpacing: 13.0,
       crossAxisSpacing: 13.0,
       itemCount: categories.length,
       shrinkWrap: true,
@@ -106,8 +105,8 @@ class HomeCategoryWidgetState extends State<HomeCategoryWidget> {
                     categories[i]["name"].toString(),
                     textAlign: TextAlign.center,
                     style: arOneSans.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: Dimensions.fontSizeDefault
+                      fontWeight: FontWeight.normal,
+                      fontSize: Dimensions.fontSizeSmall
                     ),
                   ),
                 ),

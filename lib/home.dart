@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:partai/common/utils/color_resources.dart';
-import 'package:partai/common/utils/custom_themes.dart';
-import 'package:partai/common/utils/dimensions.dart';
+import 'package:partai/widgets/home_banner.dart';
 
 import 'package:partai/widgets/home_category.dart';
 import 'package:partai/widgets/home_news.dart';
+import 'package:partai/widgets/home_user.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,6 +30,12 @@ class HomePageState extends State<HomePage> {
             ),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
+
+                // Info User
+                HomeUserWidget(),
+
+                // Home Banner
+                HomeBannerWidget(),
 
                 // Home Category List
                 HomeCategoryWidget(),

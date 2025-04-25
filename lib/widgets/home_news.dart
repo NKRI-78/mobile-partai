@@ -98,29 +98,26 @@ class HomeNewsWidgetState extends State<HomeNewsWidget> {
 
                         },
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
                           children: [
                                                 
                             Expanded(
-                              flex: 5,
+                              flex: 4,
                               child: Image.asset("assets/images/img-news.png",
-                                fit: BoxFit.cover,
+                                height: 90.0,
+                                fit: BoxFit.fill,
                               ),
                             ),
                             
                             Expanded(
                               flex: 9,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.only(
-                                        top: 2.0,
-                                        bottom: 2.0
-                                      ),
-                                      width: 220.0,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    width: 220.0,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                                       child: Text("Legislator Gerindra Bagikan Seragam Sekolah Gratis di Kolaka Utara",
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 3,
@@ -131,24 +128,23 @@ class HomeNewsWidgetState extends State<HomeNewsWidget> {
                                         ),
                                       ),
                                     ),
-                                
-                                    Container(
-                                      margin: EdgeInsets.only(
-                                        top: 2.0,
-                                        bottom: 2.0
-                                      ),
-                                      width: 220.0,
+                                  ),
+                              
+                                  SizedBox(
+                                    width: 220.0,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                                       child: Text("Partai Gerindra, menyampaikan terima kasih yang tak terhingga",
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.start,
-                                        maxLines: 2,
+                                        maxLines: 1,
                                         style: arOneSans.copyWith(
                                           fontSize: Dimensions.fontSizeSmall,
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
+                                    ),
+                                  )
+                                ],
                               ),
                             )
                                                 
@@ -161,6 +157,7 @@ class HomeNewsWidgetState extends State<HomeNewsWidget> {
               );
             },
           )
+
         ],
       ),
     );
