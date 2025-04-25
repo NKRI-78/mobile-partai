@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partai/common/utils/color_resources.dart';
 import 'package:partai/common/utils/custom_themes.dart';
 import 'package:partai/common/utils/dimensions.dart';
+import 'package:partai/detail_news.dart';
 
 class HomeNewsWidget extends StatefulWidget {
   const HomeNewsWidget({super.key});
@@ -21,6 +22,7 @@ class HomeNewsWidgetState extends State<HomeNewsWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -95,7 +97,9 @@ class HomeNewsWidgetState extends State<HomeNewsWidget> {
                       child: InkWell(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         onTap: () {
-
+                          Navigator.push(context, 
+                            MaterialPageRoute(builder: (context) => DetailNewsPage())
+                          );
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

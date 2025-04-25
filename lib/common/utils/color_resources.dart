@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ColorResources {
   static const Color transparent = Colors.transparent;
   static const Color blue = Color(0xFF64B5F6);
+  static const Color blueDark = Color(0xFF093180);
   static const Color backgroundColorPrimary = Color(0xffEBF1FF);
   static const Color bluePrimary = Color(0xFF0D7DC1);
   static const Color blueDrawerPrimary = Color(0xFF1984C5);
