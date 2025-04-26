@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partai/common/utils/color_resources.dart';
 import 'package:partai/common/utils/custom_themes.dart';
 import 'package:partai/common/utils/dimensions.dart';
-import 'package:partai/detail_news.dart';
+import 'package:partai/features/news/presentation/pages/detail_news.dart';
 
 class HomeNewsWidget extends StatefulWidget {
   const HomeNewsWidget({super.key});
