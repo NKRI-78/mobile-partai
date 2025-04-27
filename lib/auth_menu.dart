@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cunning_document_scanner/cunning_document_scanner.dart';
+import 'package:partai/common/utils/asset_source.dart';
 
 import 'package:partai/common/utils/color_resources.dart';
 import 'package:partai/common/utils/custom_themes.dart';
@@ -47,7 +48,6 @@ class AuthMenuPageState extends State<AuthMenuPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
 
-              
                   Text("Selamat Datang",
                     style: arOneSans.copyWith(
                       color: Colors.white,
@@ -56,8 +56,7 @@ class AuthMenuPageState extends State<AuthMenuPage> {
                     ),
                   ),
               
-              
-                  Image.asset("assets/images/logo/logo.png",
+                  Image.asset(AssetSource.logo,
                     height: 180.0,
                   ),
               
