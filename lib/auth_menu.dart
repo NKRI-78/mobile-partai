@@ -44,6 +44,7 @@ class AuthMenuPageState extends State<AuthMenuPage> {
           slivers: [
         
             SliverFillRemaining(
+              hasScrollBody: false,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

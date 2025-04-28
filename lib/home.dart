@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:partai/common/utils/asset_source.dart';
+import 'package:partai/common/utils/color_resources.dart';
+
 import 'package:partai/widgets/drawer.dart';
-
 import 'package:partai/widgets/home_banner.dart';
-
 import 'package:partai/widgets/home_category.dart';
 import 'package:partai/widgets/home_news.dart';
 import 'package:partai/widgets/home_user.dart';
@@ -17,11 +18,24 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
+  GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
+
+  @override 
+  void initState() {
+    super.initState();
+  }
+  
+  @override 
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      endDrawer: DrawerWidget(),
+      key: globalKey,
+      backgroundColor: ColorResources.white,
+      drawer: DrawerWidget(),
       body: RefreshIndicator.adaptive(
         onRefresh: () {
           return Future.sync(() {
@@ -33,6 +47,7 @@ class HomePageState extends State<HomePage> {
           slivers: [
             
             SliverAppBar(
+              backgroundColor: ColorResources.white,
               centerTitle: true,
               toolbarHeight: 70.0,
               leadingWidth: 80.0,
@@ -72,7 +87,7 @@ class HomePageState extends State<HomePage> {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(8.0),
                     onTap: () {
-                  
+                      globalKey.currentState?.openDrawer();
                     }, 
                     child: Icon(
                       Icons.menu,
