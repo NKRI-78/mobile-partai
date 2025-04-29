@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:partai/auth_menu.dart';
+import 'package:partai/home.dart';
+import 'package:partai/otp_code.dart';
 import 'package:partai/register_account.dart';
 
 void main() {
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const RegisterAccountPage(),
+      home: const OtpCodePage(),
     );
   }
 }
