@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:partai/otp_code.dart';
+import 'package:partai/features/forum/presentation/forum_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const OtpCodePage(),
+      home: ForumPage(),
     );
   }
 }
