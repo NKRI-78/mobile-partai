@@ -27,9 +27,9 @@ class CustomButton extends StatelessWidget {
   final bool isBackgroundImage;
 
   const CustomButton({
-    super.key, 
-    required this.onTap, 
-    this.btnTxt, 
+    super.key,
+    required this.onTap,
+    this.btnTxt,
     this.customText = false,
     this.text,
     this.width = double.infinity,
@@ -51,64 +51,60 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Bouncing(
-      onPress: isLoading 
-      ? null 
-      : onTap,
+      onPress: isLoading ? null : onTap,
       child: Container(
         width: width,
         height: height,
         decoration: BoxDecoration(
-          image: isBackgroundImage
-            ? const DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(
-                  'assets/images/background/bg.png',
-                )
-              )
-            : null,
-          boxShadow: isBoxShadow 
-          ? [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 0.0,
-                blurRadius: 10.0,
-                offset: const Offset(5.0, 5.0),
-              )
-            ]
-          : [],
+          image:
+              isBackgroundImage
+                  ? const DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/images/background/bg.png'),
+                  )
+                  : null,
+          boxShadow:
+              isBoxShadow
+                  ? [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.2),
+                      spreadRadius: 0.0,
+                      blurRadius: 10.0,
+                      offset: const Offset(5.0, 5.0),
+                    ),
+                  ]
+                  : [],
           color: btnColor,
           border: Border.all(
-            color: isBorder 
-            ? btnBorderColor 
-            : Colors.transparent,
+            color: isBorder ? btnBorderColor : Colors.transparent,
           ),
-          borderRadius: isBorderRadius 
-          ? BorderRadius.circular(sizeBorderRadius)
-          : borderRadiusGeometry
+          borderRadius:
+              isBorderRadius
+                  ? BorderRadius.circular(sizeBorderRadius)
+                  : borderRadiusGeometry,
         ),
-        child: isLoading 
-        ? Center(
-            child: SpinKitFadingCircle(
-              color: loadingColor,
-              size: 25.0
-            ),
-          )
-        : Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              customText
-              ? text! 
-              : Center(
-                child: Text(btnTxt!,
-                  style: montserrat.copyWith(
-                    color: btnTextColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: fontSize
-                  ) 
+        child:
+            isLoading
+                ? Center(
+                  child: SpinKitFadingCircle(color: loadingColor, size: 25.0),
+                )
+                : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    customText
+                        ? text!
+                        : Center(
+                          child: Text(
+                            btnTxt!,
+                            style: montserrat.copyWith(
+                              color: btnTextColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: fontSize,
+                            ),
+                          ),
+                        ),
+                  ],
                 ),
-              ),
-          ],
-        )
       ),
     );
   }

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:partai/auth_menu.dart';
-import 'package:partai/home.dart';
 import 'package:partai/otp_code.dart';
-import 'package:partai/register_account.dart';
 
 void main() {
   runApp(const MyApp());

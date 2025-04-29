@@ -21,9 +21,8 @@ class AuthMenuPage extends StatefulWidget {
 }
 
 class AuthMenuPageState extends State<AuthMenuPage> {
-  
   List<String> pictures = [];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,38 +32,33 @@ class AuthMenuPageState extends State<AuthMenuPage> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF0C3995),
-              Color(0xFF041F55),
-            ]
-          )
+            colors: [Color(0xFF0C3995), Color(0xFF041F55)],
+          ),
         ),
         child: CustomScrollView(
-          physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+          physics: BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
           slivers: [
-        
             SliverFillRemaining(
               hasScrollBody: false,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-
-                  Text("Selamat Datang",
+                  Text(
+                    "Selamat Datang",
                     style: arOneSans.copyWith(
                       color: Colors.white,
                       fontSize: Dimensions.fontSizeOverLarge,
-                      fontWeight: FontWeight.bold
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-              
-                  Image.asset(AssetSource.logo,
-                    height: 180.0,
-                  ),
-              
+
+                  Image.asset(AssetSource.logo, height: 180.0),
+
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-
                       CustomButton(
                         onTap: () {},
                         isBorder: false,
@@ -73,31 +67,40 @@ class AuthMenuPageState extends State<AuthMenuPage> {
                         btnTextColor: ColorResources.black,
                         btnTxt: "Login",
                       ),
-                        
+
                       const SizedBox(height: 10.0),
 
                       Row(
                         children: [
                           Flexible(
-                            child:  Divider(
+                            child: Divider(
                               thickness: 1.0,
-                              color: ColorResources.white.withOpacity(0.5),
-                            )
+                              color: ColorResources.white.withValues(
+                                alpha: 0.5,
+                              ),
+                            ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: Text("Atau",
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            child: Text(
+                              "Atau",
                               style: arOneSans.copyWith(
-                                color: ColorResources.white.withOpacity(0.5)
+                                color: ColorResources.white.withValues(
+                                  alpha: 0.5,
+                                ),
                               ),
                             ),
                           ),
                           Flexible(
                             child: Divider(
                               thickness: 1.0,
-                              color: ColorResources.white.withOpacity(0.5),
-                            )
-                          )
+                              color: ColorResources.white.withValues(
+                                alpha: 0.5,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
 
@@ -105,14 +108,16 @@ class AuthMenuPageState extends State<AuthMenuPage> {
 
                       CustomButton(
                         onTap: () async {
-                          pictures = await CunningDocumentScanner.getPictures(
-                            noOfPages: 1
-                          ) ?? [];
-                          
+                          pictures =
+                              await CunningDocumentScanner.getPictures(
+                                noOfPages: 1,
+                              ) ??
+                              [];
+
                           if (!mounted) return;
                           setState(() => pictures = pictures);
-                          
-                          if(pictures.isNotEmpty) {
+
+                          if (pictures.isNotEmpty) {
                             final filename = pictures.first.split('/').last;
 
                             final formData = FormData.fromMap({
@@ -124,27 +129,55 @@ class AuthMenuPageState extends State<AuthMenuPage> {
                             });
 
                             Dio dio = Dio();
-                            Response res = await dio.post("https://api-rakhsa.inovatiftujuh8.com/api/v1/auth/extract-ktp",
-                              data: formData
+                            Response res = await dio.post(
+                              "https://api-rakhsa.inovatiftujuh8.com/api/v1/auth/extract-ktp",
+                              data: formData,
                             );
                             Map<String, dynamic> data = res.data;
-                            ExtractKtpModel extractKtpModel = ExtractKtpModel.fromJson(data);
+                            ExtractKtpModel extractKtpModel =
+                                ExtractKtpModel.fromJson(data);
 
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => KtpPage(
-                              address: extractKtpModel.data.result.address,
-                              country: extractKtpModel.data.result.country,
-                              district: extractKtpModel.data.result.district,
-                              expired: extractKtpModel.data.result.expired,
-                              gender: extractKtpModel.data.result.gender,
-                              job: extractKtpModel.data.result.job,
-                              name: extractKtpModel.data.result.name,
-                              nik: extractKtpModel.data.result.nik,
-                              placeOfBirth: extractKtpModel.data.result.placeDateBirth,
-                              religion: extractKtpModel.data.result.religion,
-                              rtRw: extractKtpModel.data.result.rtRw,
-                              status: extractKtpModel.data.result.status,
-                              village: extractKtpModel.data.result.village,
-                            )));
+                            if (context.mounted) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) => KtpPage(
+                                        address:
+                                            extractKtpModel.data.result.address,
+                                        country:
+                                            extractKtpModel.data.result.country,
+                                        district:
+                                            extractKtpModel
+                                                .data
+                                                .result
+                                                .district,
+                                        expired:
+                                            extractKtpModel.data.result.expired,
+                                        gender:
+                                            extractKtpModel.data.result.gender,
+                                        job: extractKtpModel.data.result.job,
+                                        name: extractKtpModel.data.result.name,
+                                        nik: extractKtpModel.data.result.nik,
+                                        placeOfBirth:
+                                            extractKtpModel
+                                                .data
+                                                .result
+                                                .placeDateBirth,
+                                        religion:
+                                            extractKtpModel
+                                                .data
+                                                .result
+                                                .religion,
+                                        rtRw: extractKtpModel.data.result.rtRw,
+                                        status:
+                                            extractKtpModel.data.result.status,
+                                        village:
+                                            extractKtpModel.data.result.village,
+                                      ),
+                                ),
+                              );
+                            }
                           }
                         },
                         isBorder: true,
@@ -169,30 +202,27 @@ class AuthMenuPageState extends State<AuthMenuPage> {
                         customText: true,
                         text: Row(
                           children: [
-                            Image.asset("assets/images/icons/ic-google.png",
+                            Image.asset(
+                              "assets/images/icons/ic-google.png",
                               height: 40.0,
                             ),
                             const SizedBox(width: 20.0),
-                            Text("Sign Up With Google",
+                            Text(
+                              "Sign Up With Google",
                               style: arOneSans.copyWith(
                                 color: ColorResources.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: Dimensions.fontSizeDefault
+                                fontSize: Dimensions.fontSizeDefault,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
-                        
-
                     ],
                   ),
-
-
                 ],
-              )
-            )
-            
+              ),
+            ),
           ],
         ),
       ),
