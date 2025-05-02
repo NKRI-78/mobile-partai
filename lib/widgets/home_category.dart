@@ -11,48 +11,15 @@ class HomeCategoryWidget extends StatefulWidget {
 }
 
 class HomeCategoryWidgetState extends State<HomeCategoryWidget> {
-
   List<Map<String, dynamic>> categories = [
-    {
-      "id": 1,
-      "icon": "assets/images/mart.png",
-      "name": "Mart"
-    },
-    {
-      "id": 2,
-      "icon": "assets/images/event.png",
-      "name": "Event"
-    },
-    {
-      "id": 3,
-      "icon": "assets/images/membernear.png",
-      "name": "Member Near"
-    },
-    {
-      "id": 4,
-      "icon": "assets/images/ppob.png",
-      "name": "PPOB"
-    },
-    {
-      "id": 5,
-      "icon": "assets/images/media.png",
-      "name": "Media"
-    },
-    {
-      "id": 6,
-      "icon": "assets/images/news.png",
-      "name": "Berita"
-    },
-    {
-      "id": 7,
-      "icon": "assets/images/about-us.png",
-      "name": "About Us"
-    },
-    {
-      "id": 8,
-      "icon": "assets/images/forum.png",
-      "name": "Forum"
-    }
+    {"id": 1, "icon": "assets/images/mart.png", "name": "Mart"},
+    {"id": 2, "icon": "assets/images/event.png", "name": "Event"},
+    {"id": 3, "icon": "assets/images/membernear.png", "name": "Member Near"},
+    {"id": 4, "icon": "assets/images/ppob.png", "name": "PPOB"},
+    {"id": 5, "icon": "assets/images/media.png", "name": "Media"},
+    {"id": 6, "icon": "assets/images/news.png", "name": "Berita"},
+    {"id": 7, "icon": "assets/images/about-us.png", "name": "About Us"},
+    {"id": 8, "icon": "assets/images/forum.png", "name": "Forum"},
   ];
 
   @override
@@ -67,9 +34,7 @@ class HomeCategoryWidgetState extends State<HomeCategoryWidget> {
       itemBuilder: (BuildContext context, int i) {
         return InkWell(
           borderRadius: BorderRadius.circular(8.0),
-          onTap: () {
-            
-          },
+          onTap: () {},
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
@@ -85,28 +50,23 @@ class HomeCategoryWidgetState extends State<HomeCategoryWidget> {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xff393FCD),
-                      Color(0xff0F124B),
-                    ]
-                  )
+                    colors: [Color(0xff393FCD), Color(0xff0F124B)],
+                  ),
                 ),
                 child: Image.asset(
                   fit: BoxFit.fitHeight,
-                  categories[i]["icon"].toString()
+                  categories[i]["icon"].toString(),
                 ),
               ),
               Center(
                 child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    vertical: 10.0
-                  ),
+                  margin: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Text(
                     categories[i]["name"].toString(),
                     textAlign: TextAlign.center,
                     style: arOneSans.copyWith(
                       fontWeight: FontWeight.normal,
-                      fontSize: Dimensions.fontSizeSmall
+                      fontSize: Dimensions.fontSizeSmall,
                     ),
                   ),
                 ),
